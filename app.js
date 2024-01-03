@@ -10,15 +10,15 @@
 
 var taskInput = document.getElementById("new-task");//Add a new task.
 var addButton = document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder = document.getElementById("main__incomplete-tasks");//ul of #main__incomplete-tasks
-var completedTasksHolder = document.getElementById("main__complete-tasks");//main__complete-tasks
+var incompleteTaskHolder = document.getElementById("to-do__incomplete-tasks");//ul of #to-do__incomplete-tasks
+var completedTasksHolder = document.getElementById("to-do__complete-tasks");//to-do__complete-tasks
 
 
 //New task list item
 var createNewTaskElement = function(taskString) {
 
   var listItem = document.createElement("li");
-  listItem.classList.add("main__tasks-list_item");
+  listItem.classList.add("to-do__tasks-list_item");
 
   //input (checkbox)
   var checkBox = document.createElement("input");//checkbx
@@ -117,7 +117,7 @@ var deleteTask = function() {
 var taskCompleted = function() {
   console.log("Complete Task...");
 
-  //Append the task list item to the #main__complete-tasks
+  //Append the task list item to the #to-do__complete-tasks
   var listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
@@ -129,7 +129,7 @@ var taskIncomplete = function() {
   console.log("Incomplete Task...");
   //Mark task as incomplete.
   //When the checkbox is unchecked
-  //Append the task list item to the #main__incomplete-tasks.
+  //Append the task list item to the #to-do__incomplete-tasks.
   var listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
